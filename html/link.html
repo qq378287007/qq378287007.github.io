@@ -1,47 +1,43 @@
-<p><a href="/index.html">index</a> 网站页面链接</p>
+<h1>链接语法</h1>
+<ul>
+    <li>href</li>链接目标的URL，网页、文件或其他资源。
+    <li>target（可选）</li>链接打开方式，_blank（新打开）和 _self（当前打开）。
+    <li>title（可选）</li>链接的额外信息，鼠标悬停时提示。
+    <li>rel（可选）</li>与链接目标的关系，如 nofollow、noopener 等。
+</ul>
+<hr/>
 
-<p><a href="https://www.runoob.com/">菜鸟教程</a>网站链接</p>
+<h1>文本链接</h1>
+<xmp><a href="index.html">index</a> 相对链接</xmp>
+<a href="index.html">index</a> 相对链接
+<br/>
+<xmp><a href="https://www.runoob.com/">菜鸟教程</a>绝对链接</xmp>
+<a href="https://www.runoob.com/">菜鸟教程</a>绝对链接
+<hr/>
 
-
+<h1>图像链接</h1>
+<xmp><a href="https://www.example.com">
+    <img decoding="async" src="example.jpg" alt="图像链接">
+</a></xmp>
 <a href="https://www.example.com">
     <img decoding="async" src="example.jpg" alt="图像链接">
 </a>
+<hr/>
 
+<h1>锚点链接</h1>
+<xmp><a href="#section1">页面</a>锚点链接<br/>
+<a name="section1">锚点1</a><br/>
+<a id="section2">锚点2</a></xmp>
+<a href="#section1">页面</a>锚点链接<br/>
+<a name="section1">锚点1</a><br/>
+<a id="section2">锚点2</a>
+<hr/>
 
-<a href="#section2">锚点链接</a>
-<!-- 在页面中的某个位置 -->
-<a name="section2"></a>
+<h1>下载链接</h1>
+<xmp><a href="document.pdf" download>文件</a>下载链接</xmp>
+<a href="document.pdf" download>文件</a>下载链接
+<hr/>
 
-<a href="document.pdf" download>下载链接</a>
-
-
-<a href="https://www.runoob.com/" target="_blank">访问菜鸟教程!</a>
-
-<p>如果你将 target 属性设置为 &quot;_blank&quot;, 链接将在新窗口打开。</p>
-
-
-<a id="tips">有用的提示部分</a>
-<a href="#tips">访问有用的提示部分</a>
-<a href="https://www.runoob.com/html/html-links.html#tips">访问有用的提示部分</a>
-
-
-<p>创建图片链接:
-    <a href="http://www.runoob.com/html/html-tutorial.html">
-        <img border="10" src="smiley.gif" alt="HTML 教程" width="32" height="32">
-    </a>
-</p>
-
-<p>无边框的图片链接:
-    <a href="http://www.runoob.com/html/html-tutorial.html">
-        <img border="0" src="smiley.gif" alt="HTML 教程" width="32" height="32">
-    </a>
-</p>
-
-<p>
-    这是一个电子邮件链接：
-    <a href="mailto:someone@example.com?Subject=Hello%20again" target="_top">发送邮件</a>
-</p>
-
-
-
-
+<h1>邮件链接</h1>
+<xmp><a href="mailto:qq378287007@163.com?Subject=Hello%20again" target="_top">发送邮件</a></xmp>
+<a href="mailto:qq378287007@163.com?Subject=Hello%20again" target="_top">发送邮件</a>

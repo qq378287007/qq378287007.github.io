@@ -1,13 +1,20 @@
-<!DOCTYPE html>
-<html>
+<ul>
+    <li>title</li>文档标题
+    <li>base</li>默认链接目标地址
+    <li>meta</li>元数据
+    <li>link</li>链接外部样式
+    <li>style</li>内部样式
+    <li>script</li>加载脚本文件
+</ul>
 
-<head>
+<xmp><head>
     <meta charset="utf-8">
-    <title>菜鸟教程(runoob.com)</title>
+    <link rel="shortcut icon" href="图片url"><!--logo-->
+    <title>head</title>
     <meta name="description" content="免费在线教程">
     <meta name="keywords" content="HTML,CSS,XML,JavaScript">
     <meta name="author" content="runoob">
-    <meta http-equiv="refresh" content="30">
+    <meta http-equiv="refresh" content="30"><!--每30秒钟刷新当前页面-->
 
     <base href="https://www.runoob.com/images/" target="_blank">
     <link rel="stylesheet" type="text/css" href="mystyle.css">
@@ -20,16 +27,4 @@
             color: blue
         }
     </style>
-</head>
-
-<body>
-    <img src="logo.png"> - 注意这里我们设置了图片的相对地址。能正常显示是因为我们在 head 部分设置了 base 标签，该标签指定了页面上所有链接的默认 URL，所以该图片的访问地址为
-    "https://www.runoob.com/images/logo.png"
-    <br />
-    <br />
-    <a href="https://www.runoob.com">菜鸟教程</a> - 注意这个链接会在新窗口打开，即便它没有 target="_blank" 属性。因为在 base 标签里我们已经设置了 target 属性的值为
-    "_blank"。
-
-</body>
-
-</html>
+</head></xmp>

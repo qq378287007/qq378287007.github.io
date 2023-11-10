@@ -1,58 +1,67 @@
-<!--
-ul是unordered lists的缩写 (无序列表)
-
-li是list item的缩写 （列表项目）
-
-ol是ordered lists的缩写（有序列表）
-
-dl是definition lists的英文缩写 (自定义列表)
-
-dt是definition term的缩写 (自定义列表组)
-
-dd是definition description的缩写（自定义列表描述）
-
-nl是navigation lists的英文缩写 （导航列表）
-
-tr是table row的缩写 （表格中的一行）
-
-th是table header cell的缩写 （表格中的表头）
-
-td是table data cell的缩写 （表格中的一个单元格）
--->
-
-<h4>无序列表:</h4>
-<!--
-    <ul style="list-style-type:disc">圆点
-    <ul style="list-style-type:circle">圆圈
-    <ul style="list-style-type:square">正方形
--->
+<h1>无序列表</h1>
 <ul>
-    <li>Coffee</li>
+    <li><xmp><ul style="list-style-type:disc"></xmp></li>圆点
+    <li><xmp><ul style="list-style-type:circle"></xmp></li>圆圈
+    <li><xmp><ul style="list-style-type:square"></xmp></li>正方形
+</ul>
+<xmp><ul><!--unordered lists-->
+    <li>Coffee</li><!--list item-->
+    <li>Milk</li>
+</ul></xmp>
+<ul><!--unordered lists-->
+    <li>Coffee</li><!--list item-->
     <li>Milk</li>
 </ul>
+<hr />
 
-<h4>有序列表:</h4>
-<!--
-    <ol>编号
-    <ol type="A">大写字母
-    <ol type="a">小写字母
-    <ol type="I">大写罗马数字
-    <ol type="i">小写罗马数字
--->
-<ol start="50">
+<h1>有序列表</h1>
+<ul>
+    <li><xmp><ul type="A"></xmp></li>大写字母
+    <li><xmp><ul type="a"></xmp></li>小写字母
+    <li><xmp><ul type="I"></xmp></li>大写罗马数字
+    <li><xmp><ul type="i"></xmp></li>小写罗马数字
+</ul>
+<xmp><ol start="50"><!--ordered lists-->
+    <li>Coffee</li>
+    <li>Milk</li>
+</ol></xmp>
+<ol start="50"><!--ordered lists-->
     <li>Coffee</li>
     <li>Milk</li>
 </ol>
+<hr />
 
-<h4>自定义列表:</h4>
-<dl>
-    <dt>Coffee</dt>
-    <dd>- black hot drink</dd>
+<h1>自定义列表</h1>
+<xmp><dl><!--definition lists-->
+    <dt>Coffee</dt><!--definition term-->
+    <dd>- black hot drink</dd><!--definition description-->
+    <dt>Milk</dt>
+    <dd>- white cold drink</dd>
+</dl></xmp>
+<dl><!--definition lists-->
+    <dt>Coffee</dt><!--definition term-->
+    <dd>- black hot drink</dd><!--definition description-->
     <dt>Milk</dt>
     <dd>- white cold drink</dd>
 </dl>
+<hr />
 
-<h4>嵌套列表：</h4>
+<h1>嵌套列表</h1>
+<xmp><ul>
+    <li>Coffee</li>
+    <li>Tea
+        <ul>
+            <li>Black tea</li>
+            <li>Green tea
+                <ul>
+                    <li>China</li>
+                    <li>Africa</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>Milk</li>
+</ul></xmp>
 <ul>
     <li>Coffee</li>
     <li>Tea
