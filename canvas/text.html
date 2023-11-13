@@ -1,0 +1,12 @@
+<h1>文本</h1>
+<canvas id="id1" width="600" height="400"></canvas>
+<script>
+    function draw1() {
+        const ctx = document.getElementById('id1').getContext("2d");
+        ctx.font = "100px sans-serif"
+        ctx.fillText("天若有情", 10, 100);
+        ctx.strokeText("天若有情", 10, 200)
+    }
+    draw1();
+</script>
+<hr />

@@ -1,0 +1,29 @@
+<h1>创建图片</h1>
+<canvas id="id1"></canvas>
+<script>
+    const ctx1 = document.getElementById('id1').getContext("2d");
+    var img = new Image();   // 创建img元素
+    img.onload = function () {
+        ctx1.drawImage(img, 0, 0)
+    }
+    img.src = '美女.png'; // 设置图片源地址
+</script>
+<hr />
+
+<h1>创建图片</h1>
+<img src="美女.png" alt="" width="300"><br>
+<canvas id="id2" width="600" height="400"></canvas>
+<script>
+    function draw2() {
+        const ctx2 = document.getElementById('id2').getContext("2d");
+
+        var img = document.querySelector("img");
+        //ctx2.drawImage(img, 0, 0, 400, 200);//缩放
+        ctx2.drawImage(img, 100, 100, 200, 100, 50, 50, 300, 150);//切片
+
+    }
+    document.querySelector("img").onclick = function () {
+        draw2();
+    }
+</script>
+<hr />

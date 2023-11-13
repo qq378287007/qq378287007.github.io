@@ -1,0 +1,155 @@
+<h1>线段</h1>
+<canvas id="id1"></canvas>
+<script>
+    function draw1() {
+        const ctx = document.getElementById('id1').getContext("2d");
+        ctx.beginPath(); //新建一条path
+        ctx.moveTo(50, 50); //把画笔移动到指定的坐标
+        ctx.lineTo(200, 50);  //绘制一条从当前位置到指定坐标(200, 50)的直线.
+        ctx.closePath();//闭合路径。会拉一条从当前点到path起始点的直线。如果当前点与起始点重合，则什么都不做
+        ctx.stroke(); //绘制路径。
+    }
+    draw1();
+</script>
+<hr />
+
+<h1>三角形边框</h1>
+<canvas id="id2" height="200"></canvas>
+<script>
+    function draw2() {
+        const ctx = document.getElementById('id2').getContext("2d");
+        ctx.beginPath();
+        ctx.moveTo(50, 50);
+        ctx.lineTo(200, 50);
+        ctx.lineTo(200, 200);
+        ctx.closePath(); //虽然我们只绘制了两条线段，但是closePath会closePath，仍然是一个3角形
+        ctx.stroke(); //描边。stroke不会自动closePath()
+    }
+    draw2();
+</script>
+<hr />
+
+<h1>填充三角形</h1>
+<canvas id="id3" height="200"></canvas>
+<script>
+    function draw3() {
+        const ctx = document.getElementById('id3').getContext("2d");
+        ctx.beginPath();
+        ctx.moveTo(50, 50);
+        ctx.lineTo(200, 50);
+        ctx.lineTo(200, 200);
+        ctx.fill(); //填充闭合区域。如果path没有闭合，则fill()会自动闭合路径。
+    }
+    draw3();
+</script>
+<hr />
+
+<h1>圆弧1</h1>
+<canvas id="id4"></canvas>
+<script>
+    function draw4() {
+        const ctx = document.getElementById('id4').getContext("2d");
+        ctx.beginPath();
+        ctx.arc(50, 50, 40, 0, Math.PI / 2, false);
+        ctx.stroke();
+    }
+    draw4();
+</script>
+<hr />
+
+
+<h1>圆弧2</h1>
+<canvas id="id5" width="200" height="200"></canvas>
+<script>
+    function draw5() {
+        const ctx = document.getElementById('id5').getContext("2d");
+        ctx.beginPath();
+        ctx.arc(50, 50, 40, 0, Math.PI / 2, false);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(150, 50, 40, 0, -Math.PI / 2, true);
+        ctx.closePath();
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(50, 150, 40, -Math.PI / 2, Math.PI / 2, false);
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(150, 150, 40, 0, Math.PI, false);
+        ctx.fill();
+    }
+    draw5();
+</script>
+<hr />
+
+<h1>圆弧3</h1>
+<canvas id="id6" width="300" height="300"></canvas>
+<script>
+    function draw6() {
+        const ctx = document.getElementById('id6').getContext("2d");
+        ctx.beginPath();
+        ctx.moveTo(50, 50);
+        //参数1、2：控制点1坐标   参数3、4：控制点2坐标  参数5：圆弧半径
+        ctx.arcTo(200, 50, 200, 200, 100);
+        ctx.lineTo(200, 200)
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.rect(50, 50, 10, 10);
+        ctx.rect(200, 50, 10, 10)
+        ctx.rect(200, 200, 10, 10)
+        ctx.fill()
+    }
+    draw6();
+</script>
+<hr />
+
+<h1>二次贝塞尔曲线</h1>
+<canvas id="id7" width="300" height="300"></canvas>
+<script>
+    function draw7() {
+        const ctx = document.getElementById('id7').getContext("2d");
+        ctx.beginPath();
+        ctx.moveTo(10, 200); //起始点
+        var cp1x = 40, cp1y = 100;  //控制点
+        var x = 200, y = 200; // 结束点
+        //绘制二次贝塞尔曲线
+        ctx.quadraticCurveTo(cp1x, cp1y, x, y);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.rect(10, 200, 10, 10);
+        ctx.rect(cp1x, cp1y, 10, 10);
+        ctx.rect(x, y, 10, 10);
+        ctx.fill();
+    }
+    draw7();
+</script>
+<hr />
+
+<h1>三次贝塞尔曲线</h1>
+<canvas id="id8" width="300" height="300"></canvas>
+<script>
+    function draw8() {
+        const ctx = document.getElementById('id8').getContext("2d");
+        ctx.beginPath();
+        ctx.moveTo(40, 200); //起始点
+        var cp1x = 20, cp1y = 100;  //控制点1
+        var cp2x = 100, cp2y = 120;  //控制点2
+        var x = 200, y = 200; // 结束点
+        //绘制三次贝塞尔曲线
+        ctx.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.rect(40, 200, 10, 10);
+        ctx.rect(cp1x, cp1y, 10, 10);
+        ctx.rect(cp2x, cp2y, 10, 10);
+        ctx.rect(x, y, 10, 10);
+        ctx.fill();
+    }
+    draw8();
+</script>
+<hr />

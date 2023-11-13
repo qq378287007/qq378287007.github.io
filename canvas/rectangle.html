@@ -1,0 +1,32 @@
+<h1>实例1</h1>
+<canvas id="id1" width="300" height="300" style="border:1px solid #000000;">
+    The browser does not support canvas.
+</canvas>
+<script>
+    function draw1() {
+        var canvas = document.getElementById('id1');
+        if (!canvas.getContext)
+            return;
+        var ctx = canvas.getContext("2d");
+        ctx.fillStyle = "rgb(200,0,0)";
+        ctx.fillRect(10, 10, 55, 50);
+
+        ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
+        ctx.fillRect(30, 30, 55, 50);
+    }
+    draw1();
+</script>
+<hr />
+
+<h1>实例2</h1>
+<canvas id="id2"></canvas>
+<script>
+    function draw2() {
+        const ctx = document.getElementById('id2').getContext("2d");
+        ctx.fillRect(10, 10, 100, 50);     // 绘制矩形，填充的默认颜色为黑色
+        ctx.strokeRect(10, 70, 100, 50);   // 绘制矩形边框
+        ctx.clearRect(15, 15, 50, 25);
+    }
+    draw2();
+</script>
+<hr />

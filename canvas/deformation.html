@@ -1,0 +1,79 @@
+<h1>translate</h1>
+<canvas id="id1" width="600" height="400"></canvas>
+<script>
+    function draw1() {
+        const ctx = document.getElementById('id1').getContext("2d");
+        ctx.save(); //保存坐原点平移之前的状态
+        ctx.translate(100, 100);
+        ctx.strokeRect(0, 0, 100, 100)
+        ctx.restore(); //恢复到最初状态
+        ctx.translate(220, 220);
+        ctx.fillRect(0, 0, 100, 100)
+    }
+    draw1();
+</script>
+<hr />
+
+<h1>rotate</h1>
+<canvas id="id2" width="600" height="400"></canvas>
+<script>
+    function draw2() {
+        const ctx = document.getElementById('id2').getContext("2d");
+        ctx.fillStyle = "red";
+        ctx.save();
+
+        ctx.translate(100, 100);
+        ctx.rotate(Math.PI / 180 * 45);
+        ctx.fillStyle = "blue";
+        ctx.fillRect(0, 0, 100, 100);
+        ctx.restore();
+
+        ctx.save();
+        ctx.translate(0, 0);
+        ctx.fillRect(0, 0, 50, 50)
+        ctx.restore();
+    }
+    draw2();
+</script>
+<hr />
+
+
+
+<h1>scale</h1>
+<canvas id="id3" width="600" height="400"></canvas>
+<script>
+    function draw3() {
+        const ctx = document.getElementById('id3').getContext("2d");
+
+        ctx.save();
+        ctx.translate(100, 100);
+        ctx.scale(2.0, 2.0);
+        ctx.fillStyle = "blue";
+        ctx.fillRect(0, 0, 100, 100);
+        ctx.restore();
+
+        ctx.save();
+        ctx.translate(0, 0);
+        ctx.scale(0.5, 0.5);
+        ctx.fillStyle = "red";
+        ctx.fillRect(0, 0, 100, 100);
+        ctx.restore();
+    }
+    draw3();
+</script>
+<hr />
+
+
+
+<h1>transform</h1>
+<canvas id="id4" width="600" height="400"></canvas>
+<script>
+    function draw4() {
+        const ctx = document.getElementById('id4').getContext("2d");
+
+        ctx.transform(1, 1, 0, 1, 0, 0);
+        ctx.fillRect(0, 0, 100, 100);
+    }
+    draw4();
+</script>
+<hr />

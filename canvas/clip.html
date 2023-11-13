@@ -1,0 +1,15 @@
+<h1>裁剪</h1>
+<canvas id="id1" width="600" height="400"></canvas>
+<script>
+    function draw1() {
+        const ctx = document.getElementById('id1').getContext("2d");
+        ctx.beginPath();
+        ctx.arc(20, 20, 100, 0, Math.PI * 2);
+        ctx.clip();
+
+        ctx.fillStyle = "pink";
+        ctx.fillRect(20, 20, 100, 100);
+    }
+    draw1();
+</script>
+<hr />

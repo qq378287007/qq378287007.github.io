@@ -1,0 +1,129 @@
+<h1>fillStyle</h1>
+<canvas id="id1" height="300"></canvas>
+<script>
+    function draw1() {
+        const ctx = document.getElementById('id1').getContext("2d");
+        for (var i = 0; i < 6; i++) {
+            for (var j = 0; j < 6; j++) {
+                ctx.fillStyle = 'rgb(' + Math.floor(255 - 42.5 * i) + ',' + Math.floor(255 - 42.5 * j) + ',0)';
+                ctx.fillRect(j * 50, i * 50, 50, 50);
+            }
+        }
+    }
+    draw1();
+</script>
+<hr />
+
+<h1>strokeStyle</h1>
+<canvas id="id2" height="300"></canvas>
+<script>
+    function draw2() {
+        const ctx = document.getElementById('id2').getContext("2d");
+        for (var i = 0; i < 6; i++) {
+            for (var j = 0; j < 6; j++) {
+                ctx.strokeStyle = `rgb(${randomInt(0, 255)}, ${randomInt(0, 255)}, ${randomInt(0, 255)})`;
+                ctx.strokeRect(j * 50, i * 50, 40, 40);
+            }
+        }
+    }
+    draw2();
+    //返回随机的 [from, to] 之间的整数(包括from，也包括to)
+    function randomInt(from, to) {
+        return parseInt(Math.random() * (to - from + 1) + from);
+    }
+</script>
+<hr />
+
+
+<h1>lineStyle</h1>
+<canvas id="id3"></canvas>
+<script>
+    function draw3() {
+        const ctx = document.getElementById('id3').getContext("2d");
+        ctx.beginPath();
+        ctx.moveTo(10, 10);
+        ctx.lineTo(100, 10);
+        ctx.lineWidth = 10;
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(110, 10);
+        ctx.lineTo(160, 10)
+        ctx.lineWidth = 20;
+        ctx.stroke()
+    }
+    draw3();
+</script>
+<hr />
+
+
+<h1>lineCap</h1>
+<canvas id="id4"></canvas>
+<script>
+    function draw4() {
+        const ctx = document.getElementById('id4').getContext("2d");
+
+        var lineCaps = ["butt", "round", "square"];
+
+        for (var i = 0; i < 3; i++) {
+            ctx.beginPath();
+            ctx.moveTo(20 + 30 * i, 30);
+            ctx.lineTo(20 + 30 * i, 100);
+            ctx.lineWidth = 20;
+            ctx.lineCap = lineCaps[i];
+            ctx.stroke();
+        }
+
+        ctx.beginPath();
+        ctx.moveTo(0, 30);
+        ctx.lineTo(300, 30);
+
+        ctx.moveTo(0, 100);
+        ctx.lineTo(300, 100)
+
+        ctx.strokeStyle = "red";
+        ctx.lineWidth = 1;
+        ctx.stroke();
+    }
+    draw4();
+</script>
+<hr />
+
+<h1>lineJoin</h1>
+<canvas id="id5" height="300"></canvas>
+<script>
+    function draw5() {
+        const ctx = document.getElementById('id5').getContext("2d");
+
+        var lineJoin = ['round', 'bevel', 'miter'];
+        ctx.lineWidth = 20;
+
+        for (var i = 0; i < lineJoin.length; i++) {
+            ctx.lineJoin = lineJoin[i];
+            ctx.beginPath();
+            ctx.moveTo(50, 50 + i * 50);
+            ctx.lineTo(100, 100 + i * 50);
+            ctx.lineTo(150, 50 + i * 50);
+            ctx.lineTo(200, 100 + i * 50);
+            ctx.lineTo(250, 50 + i * 50);
+            ctx.stroke();
+        }
+    }
+    draw5();
+</script>
+<hr />
+
+
+<h1>虚线</h1>
+<canvas id="id6" height="300"></canvas>
+<script>
+    function draw6() {
+        const ctx = document.getElementById('id6').getContext("2d");
+
+        ctx.setLineDash([20, 5]);  // [实线长度, 间隙长度]
+        ctx.lineDashOffset = -0;
+        ctx.strokeRect(50, 50, 210, 210);
+    }
+    draw6();
+</script>
+<hr />
