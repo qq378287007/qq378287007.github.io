@@ -1,0 +1,80 @@
+<h1>localStorage 和 sessionStorage</h1>
+客户端存储数据的两个对象:
+<ul>
+    <li>localStorage</li>长久保存网站数据，无过期时间。
+    <li>sessionStorage</li>临时保存同一窗口(或标签页)的数据，在关闭窗口或标签页之后将会删除这些数据。
+</ul>
+<script>
+    if (typeof (Storage) !== "undefined") {
+        // 是的! 支持 localStorage  sessionStorage 对象!
+        // 一些代码.....
+    } else {
+        // 抱歉! 不支持 web 存储。
+    }
+</script>
+<hr />
+
+
+<h1>localStorage对象</h1>
+<div id="result"></div>
+<script>
+    if (typeof (Storage) !== "undefined") {
+        // 存储
+        //localStorage.setItem("sitename", "菜鸟教程");
+        localStorage.sitename = "菜鸟教程";
+        // 查找
+        //document.getElementById("result").innerHTML = "网站名：" + localStorage.getItem("sitename");
+        document.getElementById("result").innerHTML = "网站名：" + localStorage.sitename;
+
+        //localStorage.removeItem("sitename");
+        //删除所有数据：localStorage.clear();
+        //得到某个索引的key：localStorage.key(index);
+    }
+    else {
+        document.getElementById("result").innerHTML = "对不起，您的浏览器不支持 web 存储。";
+    }
+</script>
+
+<script>
+    function clickCounter() {
+        if (typeof (Storage) !== "undefined") {
+            if (localStorage.clickcount) {
+                localStorage.clickcount = Number(localStorage.clickcount) + 1;
+            }
+            else {
+                localStorage.clickcount = 1;
+            }
+            document.getElementById("result2").innerHTML = " 你已经点击了按钮 " + localStorage.clickcount + " 次 ";
+        }
+        else {
+            document.getElementById("result2").innerHTML = "对不起，您的浏览器不支持 web 存储。";
+        }
+    }
+</script>
+<p><button onclick="clickCounter()" type="button">点我！</button></p>
+<div id="result2"></div>
+<hr />
+
+
+<h1>sessionStorage对象</h1>
+<script>
+    function clickCounter2() {
+        if (typeof (Storage) !== "undefined") {
+            if (sessionStorage.clickcount) {
+                sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
+            }
+            else {
+                sessionStorage.clickcount = 1;
+            }
+            document.getElementById("result3").innerHTML = "在这个会话中你已经点击了该按钮 " + sessionStorage.clickcount + " 次 ";
+        }
+        else {
+            document.getElementById("result3").innerHTML = "抱歉，您的浏览器不支持 web 存储";
+        }
+    }
+</script>
+<p><button onclick="clickCounter2()" type="button">点我！</button></p>
+<div id="result3"></div>
+
+
+<h1>Web Storage实现网站列表</h1>

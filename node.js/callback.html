@@ -1,0 +1,16 @@
+<h1>阻塞</h1>
+<xmp>var fs = require("fs");
+var data = fs.readFileSync('input.txt');
+console.log(data.toString());
+console.log("程序执行结束!");</xmp>
+<hr />
+
+<h1>非阻塞</h1>
+<xmp>var fs = require("fs");
+fs.readFile('input.txt', function (err, data) {
+    if (err) 
+        return console.error(err);
+    console.log(data.toString());
+});
+console.log("程序执行结束!");</xmp>
+<hr />
