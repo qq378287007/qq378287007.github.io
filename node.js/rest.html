@@ -1,5 +1,6 @@
-<h1>users.json</h1>
-<xmp>{
+<h1>server1.js</h1>
+<xmp>users.json
+{
     "user1": {
         "name": "mahesh",
         "password": "password1",
@@ -20,8 +21,6 @@
     }
 }</xmp>
 <hr />
-
-<h1>server.js</h1>
 <xmp>var express = require('express');
 var app = express();
 var fs = require("fs");
@@ -124,4 +123,68 @@ console.log('app started at port 3000...');
 
 //curl -v http://localhost:3000/api/products -H "Content-Type: application/json" -d "{\"name\":\"XBox\", \"price\":3999}"
 //curl -v http://localhost:3000/api/products</xmp>
+<hr />
+
+<h1>server3.js</h1>
+<xmp>const countMap = new Map([[100, 10], [200, 20]]);
+const userList = [{ id: 1, name: 'Tom' }, { id: 2, name: 'Jack' }];
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function getCount() {
+    await sleep(1000);
+    return countMap.get(100);
+}
+
+async function getUserList(page, size) {
+    await sleep(1000);
+    return userList.slice((page - 1) * size, page * size);
+}
+
+async function addUser(name) {
+    await sleep(1000);
+    const user = { id: userList.length + 1, name };
+    userList.push(user);
+    return user;
+}
+
+const Koa = require('Koa');
+const app = new Koa();
+
+// log request URL:
+app.use(async (ctx, next) => {
+    console.log(`Process ${ctx.request.method} ${ctx.request.url}...`);
+    await next();
+});
+
+// parse request body:
+const bodyParser = require('koa-bodyparser');
+app.use(bodyParser());
+
+// add router:
+const router = require('koa-router')();
+router.get('/users/count', async (ctx, _next) => {
+    const count = await getCount();
+    ctx.response.body = { count };
+});
+router.get('/users', async (ctx, _next) => {
+    const { page, size } = ctx.request.query;
+    const userList = await getUserList(page, size);
+    ctx.response.body = userList;
+});
+router.post('/users', async (ctx, _next) => {
+    const { name } = ctx.request.body;
+    const user = await addUser(name);
+    ctx.response.body = { id: user.id, name: user.name };
+});
+app.use(router.routes());
+
+app.listen(3000);
+console.log('app started at port 3000...');
+
+//curl -v http://localhost:3000/users/count
+//curl -v "http://localhost:3000/users?page=1&size=10"
+//curl -v http://localhost:3000/users -H "Content-Type: application/json" -d "{\"name\": \"Lucy\"} </xmp>
 <hr />
