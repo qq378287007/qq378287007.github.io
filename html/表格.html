@@ -1,0 +1,84 @@
+<h1>完整语义化</h1>
+<xmp><table>
+    <caption>标题</caption>
+    <thead><!--表头-->
+        <tr>
+            <th>表头单元格</th>
+            <th>表头单元格</th>
+        </tr>
+    </thead>
+    <tbody><!--表身-->
+        <tr>
+            <td>表行单元格</td>
+            <td>表行单元格</td>
+        </tr>
+    </tbody>
+    <tfoot><!--表脚-->
+        <tr>
+            <td>标准单元格</td>
+            <td>标准单元格</td>
+        </tr>
+    </tfoot>
+</table></xmp>
+<hr />
+
+<h1>合并行：rowspan</h1>
+<xmp><style type="text/css">table,tr,td{border:1px solid silver;}</style>
+<table>
+    <tr>
+        <td>姓名：</td>
+        <td>小明</td>
+    </tr>
+    <tr>
+        <td rowspan="2">喜欢水果：</td>
+        <td>苹果</td>
+    </tr>
+    <tr>
+        <td>香蕉</td>
+    </tr>
+</table></xmp>
+<style type="text/css">table,tr,td{border:1px solid silver;}</style>
+<table>
+    <tr>
+        <td>姓名：</td>
+        <td>小明</td>
+    </tr>
+    <tr>
+        <td rowspan="2">喜欢水果：</td>
+        <td>苹果</td>
+    </tr>
+    <tr>
+        <td>香蕉</td>
+    </tr>
+</table>
+<hr />
+
+
+<h1>合并列：colspan</h1>
+<xmp><table>
+    <tr>
+        <td colspan="2">前端开发技术</td>
+    </tr>
+    <tr>
+        <td>HTML</td>
+        <td>CSS</td>
+    </tr>
+    <tr>
+        <td>JavaScript</td>
+        <td>jQuery</td>
+    </tr>
+</table></xmp>
+<table>
+    <tr>
+        <td colspan="2">前端开发技术</td>
+    </tr>
+    <tr>
+        <td>HTML</td>
+        <td>CSS</td>
+    </tr>
+    <tr>
+        <td>JavaScript</td>
+        <td>jQuery</td>
+    </tr>
+</table>
+<hr />
