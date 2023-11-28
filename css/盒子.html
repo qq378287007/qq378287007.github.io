@@ -1,0 +1,147 @@
+<style type="text/css">
+    table,th,td{border:1px solid red;}
+</style>
+
+<h1>定义</h1>
+所有元素都可以看成一个盒子。
+<table style="border-collapse: collapse;">
+    <caption>盒子组成</caption>
+    <thead>
+        <tr>
+            <th>属性</th>
+            <th>说明</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>content</td>
+            <td>文本或图片，width、height、overflow（溢出处理方式）</td>
+        </tr>
+        <tr>
+            <td>padding</td>
+            <td>内容与边框距离，padding-top|bottom|left|right</td>
+        </tr>
+        <tr>
+            <td>margin</td>
+            <td>当前元素与其他元素间的距离，margin-top|bottom|left|right，父子或兄弟元素</td>
+        </tr>
+        <tr>
+            <td>border</td>
+            <td>元素边框，bodrer-width|style|color</td>
+        </tr>
+    </tbody>
+</table>
+<xmp>div{
+    display:inline-block;/*块元素转换为inline-block元素，宽度由内容区撑起来*/
+    padding:20px;
+    margin:40px;
+    border:2px solid red;
+    background_color:#FFDEAD;
+}</xmp>
+<hr />
+
+<h1>宽高</h1>
+宽高针对内容区，只有块元素（加上inline-block元素）才可以设置width和height。<br />
+dispaly属性可以实现块元素和行内元素的转换。
+<xmp>div{
+    width:100px;/*块元素不设置width时，延伸一整行*/
+    height:50px;
+    border:1px solid red;
+}</xmp>
+<xmp>span{
+    width:100px;/*行内元素width和height失效，宽高由内容区撑起来*/
+    height:50px;
+    border:1px solid red;
+}</xmp>
+<hr />
+
+<h1>边框</h1>
+<xmp>div{
+    border:1px solid red;
+}</xmp>
+<hr />
+
+<h1>内边距</h1>
+<xmp>div{
+    display:inline-block;/*块元素转换为inline-block元素，宽度由内容区撑起来*/
+    padding-top:20px;
+    padding-right:40px;
+    padding-bottom:60px;
+    padding-left:80px;
+    border:2px solid red;
+    background_color:#FFDEAD;
+}</xmp>
+<xmp>
+    padding:20px;
+    padding:20px 40px;/*top right bottom left顺序*/
+    padding:20px 40px 60px;
+    padding:20px 40px 60px 80px;
+</xmp>
+<hr />
+
+<h1>外边距</h1>
+<xmp><style type="text/css">
+    #father_div
+    {
+        display:inline-block;/*块元素转换为inline-block元素，宽度由内容区撑起来*/
+        border:20px solid red;
+    }
+    #son_div
+    {
+        display:inline-block;/*块元素转换为inline-block元素，宽度由内容区撑起来*/
+        padding:20px;
+        margin-top:20px;
+        margin-right:40px;
+        margin-bottom:60px;
+        margin-left:80px;
+        border:10px solid green;
+        background-color:#FFDEAD;
+    }
+    .brother_div
+    {
+        height:20px;
+        border:5px solid blue;
+        background-color:gray;
+    }
+</style>
+<div id="father_div">
+    <div class="brother_div"></div>
+    <div id="son_div">外边距</div>
+    <div class="brother_div"></div>
+</div></xmp>
+<style type="text/css">
+    #father_div
+    {
+        display:inline-block;/*块元素转换为inline-block元素，宽度由内容区撑起来*/
+        border:20px solid red;
+    }
+    #son_div
+    {
+        display:inline-block;/*块元素转换为inline-block元素，宽度由内容区撑起来*/
+        padding:20px;
+        margin-top:20px;
+        margin-right:40px;
+        margin-bottom:60px;
+        margin-left:80px;
+        border:10px solid green;
+        background-color:#FFDEAD;
+    }
+    .brother_div
+    {
+        height:20px;
+        border:5px solid blue;
+        background-color:gray;
+    }
+</style>
+<div id="father_div">
+    <div class="brother_div"></div>
+    <div id="son_div">外边距</div>
+    <div class="brother_div"></div>
+</div>
+<xmp>
+    margin:20px;
+    margin:20px 40px;/*top right bottom left顺序*/
+    margin:20px 40px 60px;
+    margin:20px 40px 60px 80px;
+</xmp>
+<hr />

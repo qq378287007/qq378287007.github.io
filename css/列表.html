@@ -1,0 +1,70 @@
+<style type="text/css">table,tr,th,td{border:1px solid silver;}</style>
+
+<h1>列表项符号</h1>
+list-style-type:取值;
+<table>
+    <caption>有序列表</caption>
+    <thead>
+        <tr>
+            <th>属性值</th>
+            <th>说明</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>decimal</td>
+            <td>1、2、3</td>
+        </tr>
+        <tr>
+            <td>lower-roman</td>
+            <td>i、ii、iii</td>
+        </tr>
+        <tr>
+            <td>upper-roman</td>
+            <td>I、II、III</td>
+        </tr>
+        <tr>
+            <td>lower-alpha</td>
+            <td>a、b、c</td>
+        </tr>
+        <tr>
+            <td>upper-alpha</td>
+            <td>A、B、C</td>
+        </tr>
+    </tbody>
+</table>
+
+<table>
+    <caption>无序列表</caption>
+    <thead>
+        <tr>
+            <th>属性值</th>
+            <th>说明</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>disc</td>
+            <td>实心圆</td>
+        </tr>
+        <tr>
+            <td>circle</td>
+            <td>空心圆</td>
+        </tr>
+        <tr>
+            <td>square</td>
+            <td>正方形</td>
+        </tr>
+    </tbody>
+</table>
+<xmp>ol{list-style-type:lower-roman;}</xmp>
+<xmp>ul{list-style-type:circle;}</xmp>
+<hr />
+
+<h1>去除列表项符号</h1>
+<xmp>ol,ul{list-style-type:none;}</xmp>
+<hr />
+
+<h1>列表项图片</h1>
+<xmp>ul{list-style-image:url(img/leaf.png);}</xmp>
+<hr />

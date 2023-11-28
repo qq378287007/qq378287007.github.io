@@ -1,0 +1,41 @@
+
+<h1>文档流</h1>
+正常文档流：页面从上到下按行划分，块元素独占一行，相邻行元素从左到右排列直到排满。<br />
+脱离文档流：使用浮动和定位后改变了布局。
+<xmp>word-spacing:10px;</xmp>
+<style type="text/css">
+    #father
+    {
+        width:300px;
+        background-color: black;
+        border:3px solid silver;
+    }
+    #father div
+    {
+        padding: 10px;
+        margin: 15px;
+        border:2px solid red;
+    }
+    .brother1
+    {
+        background-color: #FCD568;
+        float:left;
+    }
+    .brother2
+    {
+        background-color: hotpink;
+    }
+    .brother3
+    {
+        background-color: #ADF21F;
+        float:left;
+    }
+</style>
+<div id="father">
+    <div class="brother1">box1</div>
+    <div class="brother2">box2</div>
+    <div class="brother3">box3</div>
+</div>
+
+<hr />
+
