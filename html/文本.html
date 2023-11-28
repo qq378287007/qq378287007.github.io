@@ -3,7 +3,16 @@ h1~h6
 <hr />
 
 <h1>段落</h1>
-p
+<xmp><p>段落<br/>分行</p></xmp>
+<p>段落<br/>分行</p>
+<xmp><p>
+    连续空行（换行）视为一个空格，
+        连续空行（换行）视为一个空格。
+</p></xmp>
+<p>
+    连续空行（换行）视为一个空格，
+        连续空行（换行）视为一个空格。
+</p>
 <hr />
 
 <h1>换行</h1>
@@ -27,6 +36,10 @@ br
 hr
 <hr />
 
+<h1>注释</h1>
+<xmp><!--注释文字--></xmp>
+<hr />
+
 <h1>分区</h1>
 div
 <hr />
@@ -36,8 +49,25 @@ meta、link、br、hr、img、input
 <hr />
 
 <h1>块、行内元素</h1>
-块元素独占整一行，内部可容纳块元素和行内元素。<br />
-行内元素可与其他行内元素位于同一行，内部只可容纳行内元素。
+（div）块元素独占整一行，内部可容纳块元素和行内元素。<br />
+（span）行内元素可与其他行内元素位于同一行，内部只可容纳行内元素。
+<hr />
+
+<h1>统一资源定位器(Uniform Resource Locators)</h1>
+scheme://host.domain:port/path/filename
+<ul>
+    <li>scheme</li>服务类型
+    <li>host</li>域主机
+    <li>domain</li>域名
+    <li>:port</li>主机端口号, http默认80
+    <li>path</li>服务器上的路径
+    <li>filename</li>文档/资源的名称
+</ul>
+<hr />
+
+<h1>URL字符编码</h1>
+URL只能使用ASCII 字符集.<br />
+URL 编码使用"%"其后跟随两位的十六进制数来替换非ASCII字符。
 <hr />
 
 <h1>特殊符号</h1>
@@ -55,4 +85,127 @@ meta、link、br、hr、img、input
     <li>|</li><xmp>&#124;</xmp>
     <li>度</li><xmp>&deg;</xmp>
 </ul>
+<table border=1 cellspacing=0>
+    <thead>
+        <tr>
+            <th style="width:20%">显示结果</th>
+            <th style="width:20%">描述</th>
+            <th style="width:30%">实体名称</th>
+            <th style="width:30%">实体编号</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>&nbsp;</td>
+            <td>空格</td>
+            <td>&amp;nbsp;</td>
+            <td>&amp;#160;</td>
+        </tr>
+
+        <tr>
+            <td>&lt;</td>
+            <td>小于号</td>
+            <td>&amp;lt;</td>
+            <td>&amp;#60;</td>
+        </tr>
+
+        <tr>
+            <td>&gt;</td>
+            <td>大于号</td>
+            <td>&amp;gt;</td>
+            <td>&amp;#62;</td>
+        </tr>
+
+        <tr>
+            <td>&amp;</td>
+            <td>和号</td>
+            <td>&amp;amp;</td>
+            <td>&amp;#38;</td>
+        </tr>
+
+        <tr>
+            <td>"</td>
+            <td>引号</td>
+            <td>&amp;quot;</td>
+            <td>&amp;#34;</td>
+        </tr>
+
+        <tr>
+            <td>'</td>
+            <td>撇号&nbsp;</td>
+            <td>&amp;apos; (IE不支持)</td>
+            <td>&amp;#39;</td>
+        </tr>
+
+        <tr>
+            <td>￠</td>
+            <td>分</td>
+            <td>&amp;cent;</td>
+            <td>&amp;#162;</td>
+        </tr>
+
+        <tr>
+            <td>£</td>
+            <td>镑</td>
+            <td>&amp;pound;</td>
+            <td>&amp;#163;</td>
+        </tr>
+
+        <tr>
+            <td>¥</td>
+            <td>人民币/日元</td>
+            <td>&amp;yen;</td>
+            <td>&amp;#165;</td>
+        </tr>
+
+        <tr>
+            <td>€</td>
+            <td>欧元</td>
+            <td>&amp;euro;</td>
+            <td>&amp;#8364;</td>
+        </tr>
+
+        <tr>
+            <td>§</td>
+            <td>小节</td>
+            <td>&amp;sect;</td>
+            <td>&amp;#167;</td>
+        </tr>
+
+        <tr>
+            <td>©</td>
+            <td>版权</td>
+            <td>&amp;copy;</td>
+            <td>&amp;#169;</td>
+        </tr>
+
+        <tr>
+            <td>®</td>
+            <td>注册商标</td>
+            <td>&amp;reg;</td>
+            <td>&amp;#174;</td>
+        </tr>
+
+        <tr>
+            <td>&#x2122;</td>
+            <td>商标</td>
+            <td>&amp;trade;</td>
+            <td>&amp;#8482;</td>
+        </tr>
+
+        <tr>
+            <td>×</td>
+            <td>乘号</td>
+            <td>&amp;times;</td>
+            <td>&amp;#215;</td>
+        </tr>
+
+        <tr>
+            <td>÷</td>
+            <td>除号</td>
+            <td>&amp;divide;</td>
+            <td>&amp;#247;</td>
+        </tr>
+    </tbody>
+</table>
 <hr />
