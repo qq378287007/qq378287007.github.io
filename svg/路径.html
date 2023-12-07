@@ -2,13 +2,19 @@
 <ul>
     <li>M x y</li>moveto
     <li>L x y</li>lineto
-    <li>H</li>horizontal lineto
-    <li>V</li>vertical lineto
+    <li>H x</li>horizontal lineto
+    <li>V y</li>vertical lineto
     <li>C x1 y1 x2 y2 x y</li>curveto，起点：当前位置，终点：x y，起始控制点：x1 y1， 终点控制点：x2 y2，三次贝塞尔曲线
-    <li>S</li>smooth curveto
+    <li>S x2 y2 x y</li>smooth curveto，跟在C或S指令后面，自动生成一个对称点x1 y1
     <li>Q x1 y1 x y</li>quadratic Bézier curve，起点：当前位置，终点：x y，控制点：x1 y1，二次贝塞尔曲线
-    <li>T</li>smooth quadratic Bézier curveto
-    <li>A</li>elliptical Arc
+    <li>T x y</li>smooth quadratic Bézier curveto，跟在Q或T指令后面，自动生成一个对称点x1 y1
+    <li>A rx ry x-deg large-arc sweep-flag x y</li>圆弧<br/>
+    rx ry表示x轴半径和y轴半径（看比值）<br/>
+    x-deg表示x轴旋转角度（顺时针为正）<br/>
+    前三个参数确定时，满足当前点到指定点(x y)的圆弧有四条<br/>
+    large-arc表示优劣弧(0为劣弧，1为优弧)<br/>
+    sweep-flag表示弧线方向(0为逆时针，1为顺时针)<br/>
+    x y为最终坐标
     <li>Z</li>closepath，终点和起点绘制直线
 </ul>
 以上所有命令均允许小写字母。大写表示绝对定位，小写表示相对定位。
@@ -63,5 +69,14 @@
         <text x="250" y="50" dy="-10">B</text>
         <text x="400" y="350" dx="30">C</text>
     </g>
+</svg>
+<hr />
+
+<h1>实例3</h1>
+<xmp><svg>
+    <path d="M80,80 A45,45 0 0 0 125,125 Z" fill="green" />
+</svg></xmp>
+<svg>
+    <path d="M80,80 A45,45 0 0 0 125,125 Z" fill="red" stroke="blue" stroke-width="2"/>
 </svg>
 <hr />
