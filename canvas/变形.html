@@ -4,7 +4,11 @@
     function draw1() {
         const ctx = document.getElementById('id1').getContext("2d");
         ctx.save(); //保存坐原点平移之前的状态
+
+        //translate(x, y)
+        //移动坐标原点(坐标变换)
         ctx.translate(100, 100);
+
         ctx.strokeRect(0, 0, 100, 100)
         ctx.restore(); //恢复到最初状态
         ctx.translate(220, 220);
@@ -23,7 +27,11 @@
         ctx.save();
 
         ctx.translate(100, 100);
+
+        //rotate(angle)
+        //顺时针,弧度,旋转坐标原点
         ctx.rotate(Math.PI / 180 * 45);
+
         ctx.fillStyle = "blue";
         ctx.fillRect(0, 0, 100, 100);
         ctx.restore();
@@ -37,8 +45,6 @@
 </script>
 <hr />
 
-
-
 <h1>scale</h1>
 <canvas id="id3" width="600" height="400"></canvas>
 <script>
@@ -47,7 +53,11 @@
 
         ctx.save();
         ctx.translate(100, 100);
+
+        //scale(x, y)
+        //
         ctx.scale(2.0, 2.0);
+
         ctx.fillStyle = "blue";
         ctx.fillRect(0, 0, 100, 100);
         ctx.restore();
@@ -63,15 +73,18 @@
 </script>
 <hr />
 
-
-
 <h1>transform</h1>
 <canvas id="id4" width="600" height="400"></canvas>
 <script>
     function draw4() {
         const ctx = document.getElementById('id4').getContext("2d");
 
+        //transform(a, b, c, d, e, f)
+        //a c e
+        //b d f
+        //0 0 1
         ctx.transform(1, 1, 0, 1, 0, 0);
+
         ctx.fillRect(0, 0, 100, 100);
     }
     draw4();

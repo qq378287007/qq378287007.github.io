@@ -1,4 +1,4 @@
-<h1>fillStyle</h1>
+<h1>fillStyle：填充颜色</h1>
 <canvas id="id1" height="300"></canvas>
 <script>
     function draw1() {
@@ -14,7 +14,7 @@
 </script>
 <hr />
 
-<h1>strokeStyle</h1>
+<h1>strokeStyle：轮廓颜色</h1>
 <canvas id="id2" height="300"></canvas>
 <script>
     function draw2() {
@@ -35,7 +35,7 @@
 <hr />
 
 
-<h1>lineStyle</h1>
+<h1>lineWidth：线宽</h1>
 <canvas id="id3"></canvas>
 <script>
     function draw3() {
@@ -57,7 +57,7 @@
 <hr />
 
 
-<h1>lineCap</h1>
+<h1>lineCap：线条末端样式</h1>
 <canvas id="id4"></canvas>
 <script>
     function draw4() {
@@ -89,7 +89,7 @@
 </script>
 <hr />
 
-<h1>lineJoin</h1>
+<h1>lineJoin：线条间接合处的样式</h1>
 <canvas id="id5" height="300"></canvas>
 <script>
     function draw5() {
@@ -120,8 +120,8 @@
     function draw6() {
         const ctx = document.getElementById('id6').getContext("2d");
 
-        ctx.setLineDash([20, 5]);  // [实线长度, 间隙长度]
-        ctx.lineDashOffset = -0;
+        ctx.setLineDash([20, 5, 15, 3]);  // [实线长度, 间隙长度]
+        ctx.lineDashOffset = 15; //起始偏移量
         ctx.strokeRect(50, 50, 210, 210);
     }
     draw6();

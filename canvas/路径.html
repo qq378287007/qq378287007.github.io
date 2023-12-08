@@ -6,7 +6,7 @@
         ctx.beginPath(); //新建一条path
         ctx.moveTo(50, 50); //把画笔移动到指定的坐标
         ctx.lineTo(200, 50);  //绘制一条从当前位置到指定坐标(200, 50)的直线.
-        ctx.closePath();//闭合路径。会拉一条从当前点到path起始点的直线。如果当前点与起始点重合，则什么都不做
+        //ctx.closePath();//闭合路径。会拉一条从当前点到path起始点的直线。如果当前点与起始点重合，则什么都不做
         ctx.stroke(); //绘制路径。
     }
     draw1();
@@ -50,6 +50,10 @@
     function draw4() {
         const ctx = document.getElementById('id4').getContext("2d");
         ctx.beginPath();
+
+        //arc(x, y, r, startAngle, endAngle, anticlockwise):
+        //(x,y)圆心，r半径，startAngle弧度到endAngle弧度。
+        //anticlosewise，true逆时针，false顺时针(默认)。
         ctx.arc(50, 50, 40, 0, Math.PI / 2, false);
         ctx.stroke();
     }
@@ -91,7 +95,11 @@
         const ctx = document.getElementById('id6').getContext("2d");
         ctx.beginPath();
         ctx.moveTo(50, 50);
-        //参数1、2：控制点1坐标   参数3、4：控制点2坐标  参数5：圆弧半径
+
+        //arcTo(x1, y1, x2, y2, radius)
+        //x1, y1：控制点1坐标   
+        //x2, y2：控制点2坐标  
+        //radius：圆弧半径
         ctx.arcTo(200, 50, 200, 200, 100);
         ctx.lineTo(200, 200)
         ctx.stroke();
@@ -115,7 +123,10 @@
         ctx.moveTo(10, 200); //起始点
         var cp1x = 40, cp1y = 100;  //控制点
         var x = 200, y = 200; // 结束点
-        //绘制二次贝塞尔曲线
+
+        //quadraticCurveTo(cp1x, cp1y, x, y)
+        //cp1x, cp1y：控制点坐标
+        //x, y：结束点坐标
         ctx.quadraticCurveTo(cp1x, cp1y, x, y);
         ctx.stroke();
 
@@ -139,7 +150,11 @@
         var cp1x = 20, cp1y = 100;  //控制点1
         var cp2x = 100, cp2y = 120;  //控制点2
         var x = 200, y = 200; // 结束点
-        //绘制三次贝塞尔曲线
+
+        //bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)
+        //cp1x, cp1y：控制点1坐标
+        //cp2x, cp2y：控制点2坐标
+        //x, y：结束点坐标
         ctx.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y);
         ctx.stroke();
 

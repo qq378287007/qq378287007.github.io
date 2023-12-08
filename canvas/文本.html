@@ -4,7 +4,13 @@
     function draw1() {
         const ctx = document.getElementById('id1').getContext("2d");
         ctx.font = "100px sans-serif"
+
+        //fillText(text, x, y [, maxWidth]) 
+        //(x,y)填充文本，绘制的最大宽度是可选的。
         ctx.fillText("天若有情", 10, 100);
+
+        //strokeText(text, x, y [, maxWidth]) 
+        //(x,y)绘制文本边框，绘制的最大宽度是可选的。
         ctx.strokeText("天若有情", 10, 200)
     }
     draw1();

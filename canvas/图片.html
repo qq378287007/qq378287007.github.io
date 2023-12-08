@@ -18,9 +18,10 @@
         const ctx2 = document.getElementById('id2').getContext("2d");
 
         var img = document.querySelector("img");
-        //ctx2.drawImage(img, 0, 0, 400, 200);//缩放
-        ctx2.drawImage(img, 100, 100, 200, 100, 50, 50, 300, 150);//切片
 
+        //drawImage(image, x, y, width, height), 缩放
+        //drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight),切片
+        ctx2.drawImage(img, 100, 100, 200, 100, 50, 50, 300, 150);
     }
     document.querySelector("img").onclick = function () {
         draw2();

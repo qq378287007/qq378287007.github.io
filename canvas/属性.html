@@ -1,0 +1,23 @@
+<h1>width heigth</h1>
+<p>默认width为300、height为150</p>
+<canvas>
+    浏览器不支持canvas
+</canvas>
+<canvas>
+    <img src="美女.png" alt="图片不存在">
+</canvas>
+
+<canvas id="tutorial" width="300" height="300"></canvas>
+<script type="text/javascript">
+    function draw() {
+        var canvas = document.getElementById('tutorial');
+        if (!canvas.getContext) 
+            return;
+
+        var ctx = canvas.getContext("2d");
+        //console.log(ctx)
+    }
+    draw();
+</script>
+
+<hr />

@@ -12,9 +12,8 @@
         img.src = imgList[i];
         img.onload = function () {
             loadNum++;
-            if (loadNum == imgTotal) {
+            if (loadNum == imgTotal) 
                 draw1();
-            }
         }
     }
 
@@ -54,23 +53,27 @@
         requestAnimationFrame(draw1);
     }
 </script>
+<img src="太阳系.gif"/>
 <hr />
 
 <h1>时钟</h1>
 <canvas id="id2" width="600" height="400"></canvas>
 <script>
+    //setInterval()
+    //setTimeout()
+    //requestAnimationFrame()
+
     const ctx2 = document.getElementById('id2').getContext("2d");
-    
-    function draw2(ctx) {
+    function draw2(ctx2) {
         requestAnimationFrame(function step() {
-            drawDial(ctx); //绘制表盘
-            drawAllHands(ctx); //绘制时分秒针
+            drawDial(ctx2); //绘制表盘
+            drawAllHands(ctx2); //绘制时分秒针
             requestAnimationFrame(step);
         });
     }
     draw2(ctx2);
 
-    /*绘制时分秒针*/
+    //绘制时分秒针
     function drawAllHands(ctx) {
         let time = new Date();
 
@@ -87,13 +90,8 @@
         drawHand(minuteAngle, 106, 4, "green", ctx);  //绘制分针
         drawHand(secondAngle, 129, 2, "blue", ctx);  //绘制秒针
     }
-    /*绘制时针、或分针、或秒针
-     * 参数1：要绘制的针的角度
-     * 参数2：要绘制的针的长度
-     * 参数3：要绘制的针的宽度
-     * 参数4：要绘制的针的颜色
-     * 参数4：ctx
-     * */
+
+    //绘制时针、或分针、或秒针
     function drawHand(angle, len, width, color, ctx) {
         ctx.save();
         ctx.translate(150, 150); //把坐标轴的远点平移到原来的中心
@@ -109,7 +107,7 @@
         ctx.restore();
     }
 
-    /*绘制表盘*/
+    //绘制表盘
     function drawDial(ctx) {
         let pi = Math.PI;
 

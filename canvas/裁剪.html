@@ -5,6 +5,11 @@
         const ctx = document.getElementById('id1').getContext("2d");
         ctx.beginPath();
         ctx.arc(20, 20, 100, 0, Math.PI * 2);
+
+        //clip()
+        //已创建路径转换成裁剪路径
+        //只显示裁剪路径内的区域(遮罩)
+        //clip()只能遮罩在这个方法调用之后绘制的图像
         ctx.clip();
 
         ctx.fillStyle = "pink";
