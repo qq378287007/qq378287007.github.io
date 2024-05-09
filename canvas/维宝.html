@@ -5,19 +5,23 @@
 </head>
 
 <body>
-    <canvas id="id" width="600" height="400"></canvas>
+    <canvas id="id" width="600" height="500"></canvas>
     <script>
         const ctx = document.getElementById('id').getContext("2d");
-        ctx.font = "100px sans-serif"
-        ctx.fillText("心", 250, 250);
-
         var img = new Image();   // 创建img元素
         img.onload = function () {
-            ctx.drawImage(img, 300 - 108 / 2, 0, 108, 144)
+            var w = 108*2;
+            var h = 144*2;
+            ctx.drawImage(img, 300 - w / 2, 0, w, h)
+
+            ctx.font = "200px sans-serif";
+            ctx.fillStyle = "red";
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            ctx.fillText("心", 300, 120+h);
         }
         img.src = '维宝.jpg'; // 设置图片源地址
     </script>
-    <hr />
 </body>
 
 </html>
