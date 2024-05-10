@@ -1,0 +1,57 @@
+<html>
+
+<head>
+    <title>维宝特笑</title>
+</head>
+
+<body>
+    <canvas id="id" width="864" height="1152"></canvas>
+    <script>
+        const ctx = document.getElementById('id').getContext("2d");
+        var count = 0; 
+        var w = 108*2;
+        var h = 144*2;
+        var img1 = new Image(); 
+        var img2 = new Image(); 
+        var img3 = new Image(); 
+        var img4 = new Image(); 
+        img1.onload = function () {
+            if(++count >= 4){ 
+                ctx.drawImage(img1, 0, 0, w, h)
+                ctx.drawImage(img2, w, 0, w, h)
+                ctx.drawImage(img3, w*2, 0, w, h)
+                ctx.drawImage(img4, w*3, 0, w, h)
+            }  
+        }
+        img2.onload = function () {
+            if(++count >= 4){ 
+                ctx.drawImage(img1, 0, 0, w, h)
+                ctx.drawImage(img2, w, 0, w, h)
+                ctx.drawImage(img3, w*2, 0, w, h)
+                ctx.drawImage(img4, w*3, 0, w, h)
+            }  
+        }
+        img3.onload = function () {
+            if(++count >= 4){ 
+                ctx.drawImage(img1, 0, 0, w, h)
+                ctx.drawImage(img2, w, 0, w, h)
+                ctx.drawImage(img3, w*2, 0, w, h)
+                ctx.drawImage(img4, w*3, 0, w, h)
+            }  
+        }
+        img4.onload = function () {
+            if(++count >= 4){ 
+                ctx.drawImage(img1, 0, 0, w, h)
+                ctx.drawImage(img2, w, 0, w, h)
+                ctx.drawImage(img3, w*2, 0, w, h)
+                ctx.drawImage(img4, w*3, 0, w, h)
+            }  
+        }
+        img1.src = 'cartoon.jpg';
+        img2.src = '维宝.jpg';
+        img3.src = '维宝2.jpg';
+        img4.src = 'sketch.jpg';
+    </script>
+</body>
+
+</html>
