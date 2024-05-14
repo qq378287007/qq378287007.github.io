@@ -69,3 +69,8 @@ function writeUniformFv(gl, name, value) {
             break;
     }
 }
+
+function writeUniformMatrix4fv(gl, name, value) {
+    const uniformMatrix4 = gl.getUniformLocation(gl.program, name);
+    gl.uniformMatrix4fv(uniformMatrix4, false, value);
+}

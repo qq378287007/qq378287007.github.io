@@ -1,0 +1,58 @@
+<html>
+
+<body>
+  <canvas id="cvs" />
+  <script src="initShaders.js"></script>
+  <script src="writeGLData.js"></script>
+  <script src="matrix.js"></script>
+  <script src="initVertexBuffers.js"></script>
+  <script>
+    const ANGLE_STEP = 45.0;
+    var g_last = Date.now();
+    function animate(angle) {
+      const now = Date.now();
+      const elapsed = now - g_last;
+      g_last = now;
+      return angle + (ANGLE_STEP * elapsed) / 1000.0;
+    }
+
+    var currentAngle = 0.0;
+    const modelMatrix = new Matrix4();
+    function draw(gl, n) {
+      currentAngle = animate(currentAngle);
+      modelMatrix.setRotate(currentAngle, 0, 0, 1);
+      modelMatrix.translate(0.35, 0, 0);
+      writeUniformMatrix4fv(gl, 'u_ModelMatrix', modelMatrix.elements);
+
+      gl.clear(gl.COLOR_BUFFER_BIT);
+      gl.drawArrays(gl.TRIANGLES, 0, n);
+      
+      requestAnimationFrame(function () { draw(gl, n); });
+    }
+
+    const VSHADER_SOURCE = `
+    attribute vec4 a_Position;
+    uniform mat4 u_ModelMatrix;
+    void main(){
+      gl_Position = u_ModelMatrix * a_Position;
+    }`;
+
+    const FSHADER_SOURCE = `
+    void main(){
+        gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+    }`;
+
+    const canvas = document.getElementById('cvs');
+    const gl = canvas.getContext('webgl');
+    initShaders(gl, VSHADER_SOURCE, FSHADER_SOURCE);
+    
+    gl.clearColor(0.0, 0.0, 0.0, 1.0);
+    gl.clear(gl.COLOR_BUFFER_BIT);
+
+    const vertices = new Float32Array([0, 0.5, -0.5, -0.5, 0.5, -0.5]);
+    const n = initVertexBuffers(gl, vertices, 'a_Position', 2);
+    draw(gl, n);
+  </script>
+</body>
+
+</html>
