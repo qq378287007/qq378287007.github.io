@@ -112,7 +112,150 @@ Matrix4.prototype.setTranslate = function (x, y, z) {
     e[3] = 0; e[7] = 0; e[11] = 0; e[15] = 1;
     return this;
 };
+Matrix4.prototype.multiply = Matrix4.prototype.concat;
 
 Matrix4.prototype.rotate = function (angle, x, y, z) {
     return this.concat(new Matrix4().setRotate(angle, x, y, z));
 };
+
+Matrix4.prototype.setLookAt = function (eyeX, eyeY, eyeZ, centerX, centerY, centerZ, upX, upY, upZ) {
+    var fx = centerX - eyeX;
+    var fy = centerY - eyeY;
+    var fz = centerZ - eyeZ;
+
+    const rlf = 1 / Math.sqrt(fx * fx + fy * fy + fz * fz);
+    fx *= rlf;
+    fy *= rlf;
+    fz *= rlf;
+
+    var sx = fy * upZ - fz * upY;
+    var sy = fz * upX - fx * upZ;
+    var sz = fx * upY - fy * upX;
+
+    const rls = 1 / Math.sqrt(sx * sx + sy * sy + sz * sz);
+    sx *= rls;
+    sy *= rls;
+    sz *= rls;
+
+    const ux = sy * fz - sz * fy;
+    const uy = sz * fx - sx * fz;
+    const uz = sx * fy - sy * fx;
+
+    const e = this.elements;
+    e[0] = sx;
+    e[1] = ux;
+    e[2] = -fx;
+    e[3] = 0;
+
+    e[4] = sy;
+    e[5] = uy;
+    e[6] = -fy;
+    e[7] = 0;
+
+    e[8] = sz;
+    e[9] = uz;
+    e[10] = -fz;
+    e[11] = 0;
+
+    e[12] = 0;
+    e[13] = 0;
+    e[14] = 0;
+    e[15] = 1;
+
+    return this.translate(-eyeX, -eyeY, -eyeZ);
+};
+
+Matrix4.prototype.setPerspective = function (fovy, aspect, near, far) {
+    if (near === far || aspect === 0)
+        throw 'null frustum';
+
+    if (near <= 0)
+        throw 'near <= 0';
+
+    if (far <= 0)
+        throw 'far <= 0';
+
+    fovy = Math.PI * fovy / 180 / 2;
+    const s = Math.sin(fovy);
+    if (s === 0)
+        throw 'null frustum';
+
+    const rd = 1 / (far - near);
+    const ct = Math.cos(fovy) / s;
+
+    const e = this.elements;
+
+    e[0] = ct / aspect;
+    e[1] = 0;
+    e[2] = 0;
+    e[3] = 0;
+
+    e[4] = 0;
+    e[5] = ct;
+    e[6] = 0;
+    e[7] = 0;
+
+    e[8] = 0;
+    e[9] = 0;
+    e[10] = -(far + near) * rd;
+    e[11] = -1;
+
+    e[12] = 0;
+    e[13] = 0;
+    e[14] = -2 * near * far * rd;
+    e[15] = 0;
+
+    return this;
+};
+
+Matrix4.prototype.lookAt = function (eyeX, eyeY, eyeZ, centerX, centerY, centerZ, upX, upY, upZ) {
+    return this.concat(new Matrix4().setLookAt(eyeX, eyeY, eyeZ, centerX, centerY, centerZ, upX, upY, upZ));
+};
+
+Matrix4.prototype.setOrtho = function (left, right, bottom, top, near, far) {
+    if (left === right || bottom === top || near === far)
+        throw 'null frustum';
+
+    const rw = 1 / (right - left);
+    const rh = 1 / (top - bottom);
+    const rd = 1 / (far - near);
+
+    const e = this.elements;
+
+    e[0] = 2 * rw;
+    e[1] = 0;
+    e[2] = 0;
+    e[3] = 0;
+
+    e[4] = 0;
+    e[5] = 2 * rh;
+    e[6] = 0;
+    e[7] = 0;
+
+    e[8] = 0;
+    e[9] = 0;
+    e[10] = -2 * rd;
+    e[11] = 0;
+
+    e[12] = -(right + left) * rw;
+    e[13] = -(top + bottom) * rh;
+    e[14] = -(far + near) * rd;
+    e[15] = 1;
+
+    return this;
+};
+
+Matrix4.prototype.set = function (src) {
+    const s = src.elements;
+    const d = this.elements;
+
+    if (s === d)
+        return;
+
+    for (var i = 0; i < 16; ++i)
+        d[i] = s[i];
+
+    return this;
+};
+
+
