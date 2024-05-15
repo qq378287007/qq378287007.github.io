@@ -131,13 +131,19 @@
     canvas.onmouseup = function (ev) { dragging = false; }; // Mouse is released
 
     canvas.addEventListener('touchstart', (ev) => {
-      const { pageX: x, pageY: y } = ev.touches[0];
+      let vertex = canvas.getBoundingClientRect();
+      let x = ev.originalEvent.changedTouches[0].clientX - vertex.left;
+      let y = ev.originalEvent.changedTouches[0].clientY - vertex.top;
+      //const { pageX: x, pageY: y } = ev.touches[0];
       lastX = x;
       lastY = y;
       dragging = true;
     });
     canvas.addEventListener('touchmove', (ev) => {
-      const { pageX: x, pageY: y } = ev.touches[0];
+      let vertex = canvas.getBoundingClientRect();
+      let x = ev.originalEvent.changedTouches[0].clientX - vertex.left;
+      let y = ev.originalEvent.changedTouches[0].clientY - vertex.top;
+      //const { pageX: x, pageY: y } = ev.touches[0];
       if (dragging) {
         var factor = 100 / canvas.height; // The rotation ratio
         var dx = factor * (x - lastX);
