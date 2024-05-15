@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RotateObject</title>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RotateObject</title>
 </head>
+
 <body>
-  <canvas id="cvs"  width="400" height="400"/>
+  <canvas id="cvs" width="400" height="400" />
   <script src="initShaders.js"></script>
   <script src="writeGLData.js"></script>
   <script src="matrix.js"></script>
@@ -127,6 +129,32 @@
       lastX = x;
       lastY = y;
     };
+
+    canvas.addEventListener('touchstart', (ev) => {
+      var rect = ev.target.getBoundingClientRect();
+      if (rect.left <= x && x < rect.right && rect.top <= y && y < rect.bottom) {
+        lastX = x;
+        lastY = y;
+        dragging = true;
+      }
+    });
+    canvas.addEventListener('touchmove', (ev) => {
+      var x = ev.clientX;
+      var y = ev.clientY;
+      if (dragging) {
+        var factor = 100 / canvas.height; // The rotation ratio
+        var dx = factor * (x - lastX);
+        var dy = factor * (y - lastY);
+        // Limit x-axis rotation angle to -90 to 90 degrees
+        currentAngle[0] = Math.max(Math.min(currentAngle[0] + dy, 90.0), -90.0);
+        currentAngle[1] = currentAngle[1] + dx;
+      }
+      lastX = x;
+      lastY = y;
+    });
+    canvas.addEventListener('touchend', (ev) => {
+      dragging = false;
+    });
 
     const files = ['sky.jpg'];
     const names = ['u_Sampler'];
