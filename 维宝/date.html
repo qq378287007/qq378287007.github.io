@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="chatbox.css">
+    <title>维宝日志</title>
+</head>
+
+<script src="https://cdn.bootcss.com/jquery/3.5.0/jquery.js"></script>
+
+<body>
+    <script src="readTxt.js"></script>
+    <label for="missing-date">思念日期：</label>
+    <input id="missing-date" type="date" name="start_date" min="2024-05-06" max="2100-01-01" onchange="myFunction()" />
+    <div id="content"> </div>
+    <script>
+        function updateNowDate() {
+            var today = new Date();
+            var year = today.getFullYear();
+            var month = today.getMonth() + 1; // 月份从0开始，需要加1
+            var day = today.getDate();
+
+            // 格式化为"yyyy-mm-dd"的日期字符串
+            var formattedDate = year + "-" + (month < 10 ? "0" + month : month) + "-" + (day < 10 ? "0" + day : day);
+
+            // 动态设置默认值
+            document.getElementById("missing-date").value = formattedDate;
+        }
+
+        function readTxtFile(fileName) {
+            const request = new XMLHttpRequest();
+            request.onreadystatechange = function () {
+                if (request.readyState === 4 && request.status !== 404) {
+                    onReadTxtFile(request.responseText, fileName);
+                } else {
+                    document.getElementById("content").innerHTML = '';
+                }
+            }
+            request.open('GET', fileName, true); // Create a request to acquire the file
+            request.send();                      // Send the request
+        }
+
+        function onReadTxtFile(fileString, fileName) {
+            const txtDoc = new TxtDoc(fileName);
+            const strs = txtDoc.parse(fileString);
+            document.getElementById("content").innerHTML = strs;
+        }
+
+        function myFunction() {
+            var x = document.getElementById("missing-date");
+            var date_str = x.value.replace(/-/g, "");
+            console.log(date_str);
+            readTxtFile(date_str + '.txt');
+        }
+        updateNowDate();
+    </script>
+</body>
+
+</html>
