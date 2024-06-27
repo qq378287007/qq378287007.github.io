@@ -1,135 +1,86 @@
-<html>
+<!DOCTYPE html>
+
 <head>
-  <title>维宝的思念日志</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <link rel="stylesheet" href="chatbox.css">
+  <title>维宝日志</title>
 </head>
 
+<script src="https://cdn.bootcss.com/jquery/3.5.0/jquery.js"></script>
+
 <body>
-  <ul>
-    <li> <a href="20240506.html">20240506</a> </li>
-  </ul>
-  <ul>
-    <li> <a href="20240507.html">20240507</a> </li>
-  </ul>
-  <ul>
-    <li> <a href="20240508.html">20240508</a> </li>
-  </ul>
-  <ul>
-    <li> <a href="20240509.html">20240509</a> </li>
-  </ul>
-  <ul>
-    <li> <a href="20240510.html">20240510</a> </li>
-  </ul>
-  <ul>
-    <li> <a href="20240511.html">20240511</a> </li>
-  </ul>
-  <ul>
-    <li> <a href="20240512.html">20240512</a> </li>
-  </ul>
-  <ul>
-    <li> <a href="20240513.html">20240513</a> </li>
-  </ul>
-  <ul>
-    <li> <a href="20240514.html">20240514</a> </li>
-  </ul>
-  <ul>
-    <li> <a href="20240515.html">20240515</a> </li>
-  </ul>
-  <ul>
-    <li> <a href="20240516.html">20240516</a> </li>
-  </ul>
-  <ul>
-    <li> <a href="20240517.html">20240517</a> </li>
-  </ul>
-  <ul>
-    <li> <a href="20240518.html">20240518</a> </li>
-  </ul>
-  <ul>
-    <li> <a href="20240519.html">20240519</a> </li>
-  </ul>
-  <ul>
-    <li> <a href="20240520.html">20240520</a> </li>
-  </ul>
-  <ul>
-    <li> <a href="20240521.html">20240521</a> </li>
-  </ul>
-  <ul>
-    <li> <a href="20240522.html">20240522</a> </li>
-  </ul>
-  <ul>
-    <li> <a href="20240523.html">20240523</a> </li>
-  </ul>
-  <ul>
-    <li> <a href="20240524.html">20240524</a> </li>
-  </ul>
-  <ul>
-    <li> <a href="20240525.html">20240525</a> </li>
-  </ul>
-  <ul>
-    <li> <a href="20240526.html">20240526</a> </li>
-  </ul>
-  <ul>
-    <li> <a href="20240527.html">20240527</a> </li>
-  </ul>
-  <ul>
-    <li> <a href="20240528.html">20240528</a> </li>
-  </ul>
-  <ul>
-    <li> <a href="20240529.html">20240529</a> </li>
-  </ul>
-  <ul>
-    <li> <a href="20240530.html">20240530</a> </li>
-  </ul>
-  <ul>
-    <li> <a href="20240531.html">20240531</a> </li>
-  </ul>
-  <ul>
-    <li> <a href="20240601.html">20240601</a> </li>
-  </ul>
-  <ul>
-    <li> <a href="20240602.html">20240602</a> </li>
-  </ul>
-  <ul>
-    <li> <a href="20240603.html">20240603</a> </li>
-  </ul>
-  <ul>
-    <li> <a href="20240604.html">20240604</a> </li>
-  </ul>
-  <ul>
-    <li> <a href="20240605.html">20240605</a> </li>
-  </ul>
-  <ul>
-    <li> <a href="20240606.html">20240606</a> </li>
-  </ul>
-  <ul>
-    <li> <a href="20240607.html">20240607</a> </li>
-  </ul>
-  <ul>
-    <li> <a href="20240611.html">20240611</a> </li>
-  </ul>
-  <ul>
-    <li> <a href="20240612.html">20240612</a> </li>
-  </ul>
-  <ul>
-    <li> <a href="20240613.html">20240613</a> </li>
-  </ul>
-  <ul>
-    <li> <a href="20240614.html">20240614</a> </li>
-  </ul>
-  <ul>
-    <li> <a href="20240615.html">20240615</a> </li>
-  </ul>
-  <ul>
-    <li> <a href="20240616.html">20240616</a> </li>
-  </ul>
-  <ul>
-    <li> <a href="20240617.html">20240617</a> </li>
-  </ul>
-  <ul>
-    <li> <a href="20240618.html">20240618</a> </li>
-  </ul>
-  <ul>
-    <li> <a href="与维宝有关的日子.html">与维宝有关的日子</a> </li>
-  </ul>
+  <h1>与维宝相识的日子：<font color=red style='font-size:45px;font-family:宋体'>2024年2月23日11时49分</font>
+  </h1>
+  <h1>第一次见面的日子：<font color=red style='font-size:45px;font-family:宋体'>2024年5月2日17时20分</font>
+  </h1>
+  <h1 id="date1"></h1>
+  <h1 id="date2"></h1>
+  <script>
+    setInterval(function () {
+      var curDate = new Date();// 获取当前日期
+      var day, hour, minute, second, interval;
+
+      interval = curDate - new Date('2024-2-23 11:49:00');
+      interval /= 1000;
+      day = Math.round(interval / 60 / 60 / 24);
+      hour = Math.round(interval / 60 / 60 % 24);
+      minute = Math.round(interval / 60 % 60);
+      second = Math.round(interval % 60);
+      document.getElementById('date1').innerHTML = "相知相识的第<font color=red style='font-size:45px;font-family:宋体'>" + day + "天" + hour + "时" + minute + "分" + second + "秒</font>";
+
+      interval = curDate - new Date('2024-5-6 00:00:00');
+      interval /= 1000;
+      day = Math.round(interval / 60 / 60 / 24);
+      hour = Math.round(interval / 60 / 60 % 24);
+      minute = Math.round(interval / 60 % 60);
+      second = Math.round(interval % 60);
+      document.getElementById('date2').innerHTML = "思念维宝的第<font color=red style='font-size:45px;font-family:宋体'>" + day + "天" + hour + "时" + minute + "分" + second + "秒</font>";
+    }, 1);
+  </script>
+
+  <script src="readTxt.js"></script>
+  <label for="missing-date">思念日期：</label>
+  <input id="missing-date" type="date" name="start_date" min="2024-05-06" max="2100-01-01" onchange="myFunction()" />
+  <div id="content"> </div>
+  <script>
+    function updateNowDate() {
+      var today = new Date();
+      var year = today.getFullYear();
+      var month = today.getMonth() + 1; 
+      var day = today.getDate();
+
+      var formattedDate = year + "-" + (month < 10 ? "0" + month : month) + "-" + (day < 10 ? "0" + day : day);
+      document.getElementById("missing-date").value = formattedDate;
+    }
+
+    function readTxtFile(fileName) {
+      const request = new XMLHttpRequest();
+      request.onreadystatechange = function () {
+        if (request.readyState === 4 && request.status !== 404) {
+          onReadTxtFile(request.responseText, fileName);
+        } else {
+          document.getElementById("content").innerHTML = '';
+        }
+      }
+      request.open('GET', fileName, true); 
+      request.send(); 
+    }
+
+    function onReadTxtFile(fileString, fileName) {
+      const txtDoc = new TxtDoc(fileName);
+      const strs = txtDoc.parse(fileString);
+      document.getElementById("content").innerHTML = strs;
+    }
+
+    function myFunction() {
+      var x = document.getElementById("missing-date");
+      var date_str = x.value.replace(/-/g, "");
+      console.log(date_str);
+      readTxtFile(date_str + '.txt');
+    }
+    updateNowDate();
+  </script>
 </body>
 
 </html>

@@ -66,24 +66,52 @@ TxtDoc.prototype.parse = function (fileString) {
 
     // Parse line by line
     var line;         // A string in the line to be parsed
+    var last_command = '';
+    var command;
+    var str;
     var sp = new StringParser();  // Create StringParser
     while ((line = lines[index++]) != null) {
         sp.init(line);                  // init StringParser
-        var command = sp.getWord();     // Get command
+        command = sp.getWord();     // Get command
         if (command == null)
-            continue;  // check null command
+            continue; 
 
-        var str = sp.getWord();
-        switch (command) {
-            case '0':
+        command = command.trim();
+        if (command == '')
+            continue; 
+        
+        if (command == '0') {
+            last_command = '0';
+            str = sp.getWord();
+            if (str == null)
+                continue; 
+            str = str.trim();
+            if (str != '')
                 strs += '<div class="chat-notice"><span>' + str + '</span> </div>';
-                continue;
-            case '1':
+        } else if (command == '1') {
+            last_command = '1';
+            str = sp.getWord();
+            if (str == null)
+                continue; 
+            str = str.trim();
+            if (str != '')
                 strs += '<div class="chat-sender"><div><img src="小马.jpg"></div><div>笨笨</div><div><div class="chat-left_triangle"></div><span>' + str + '</span></div></div>';
-                continue;
-            case '2':
+        } else if (command == '2') {
+            last_command = '2';
+            str = sp.getWord();
+            if (str == null)
+                continue; 
+            str = str.trim();
+            if (str != '')
                 strs += '<div class="chat-receiver"><div><img src="维宝.jpg"></div><div>维宝</div><div><div class="chat-right_triangle"></div><span>' + str + '</span></div></div>';
-                continue;
+        } else {
+            if (last_command == '0') {
+                strs += '<div class="chat-notice"><span>' + command + '</span> </div>';
+            } else if (last_command == '1') {
+                strs += '<div class="chat-sender"><div><img src="小马.jpg"></div><div>笨笨</div><div><div class="chat-left_triangle"></div><span>' + command + '</span></div></div>';
+            } else if (last_command == '2') {
+                strs += '<div class="chat-receiver"><div><img src="维宝.jpg"></div><div>维宝</div><div><div class="chat-right_triangle"></div><span>' + command + '</span></div></div>';
+            }
         }
     }
     return strs;
