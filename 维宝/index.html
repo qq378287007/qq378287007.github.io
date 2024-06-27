@@ -10,12 +10,12 @@
 <script src="https://cdn.bootcss.com/jquery/3.5.0/jquery.js"></script>
 
 <body>
-  <h1>与维宝相识的日子：<font color=red style='font-size:45px;font-family:宋体'>2024年2月23日11时49分</font>
-  </h1>
-  <h1>第一次见面的日子：<font color=red style='font-size:45px;font-family:宋体'>2024年5月2日17时20分</font>
-  </h1>
-  <h1 id="date1"></h1>
-  <h1 id="date2"></h1>
+  <p>与维宝相识的日子：<font color=red>2024年2月23日11时49分</font>
+  </p>
+  <p>第一次见面的日子：<font color=red>2024年5月2日17时20分</font>
+  </p>
+  <p id="date1"></p>
+  <p id="date2"></p>
   <script>
     setInterval(function () {
       var curDate = new Date();// 获取当前日期
@@ -27,7 +27,7 @@
       hour = Math.round(interval / 60 / 60 % 24);
       minute = Math.round(interval / 60 % 60);
       second = Math.round(interval % 60);
-      document.getElementById('date1').innerHTML = "相知相识的第<font color=red style='font-size:45px;font-family:宋体'>" + day + "天" + hour + "时" + minute + "分" + second + "秒</font>";
+      document.getElementById('date1').innerHTML = "相知相识的第<font color=red>" + day + "天" + hour + "时" + minute + "分" + second + "秒</font>";
 
       interval = curDate - new Date('2024-5-6 00:00:00');
       interval /= 1000;
@@ -35,7 +35,7 @@
       hour = Math.round(interval / 60 / 60 % 24);
       minute = Math.round(interval / 60 % 60);
       second = Math.round(interval % 60);
-      document.getElementById('date2').innerHTML = "思念维宝的第<font color=red style='font-size:45px;font-family:宋体'>" + day + "天" + hour + "时" + minute + "分" + second + "秒</font>";
+      document.getElementById('date2').innerHTML = "思念维宝的第<font color=red>" + day + "天" + hour + "时" + minute + "分" + second + "秒</font>";
     }, 1);
   </script>
 
