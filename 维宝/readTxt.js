@@ -95,7 +95,7 @@ TxtDoc.prototype.parse = function (fileString) {
                 continue; 
             str = str.trim();
             if (str != '')
-                strs += '<div class="chat-sender"><div><img src="小马.jpg"></div><div>笨笨</div><div><div class="chat-left_triangle"></div><span>' + str + '</span></div></div>';
+                strs += '<div class="chat-sender"><div><img src="笨笨.jpg"></div><div>笨笨</div><div><div class="chat-left_triangle"></div><span>' + str + '</span></div></div>';
         } else if (command == '2') {
             last_command = '2';
             str = sp.getWord();
@@ -108,7 +108,7 @@ TxtDoc.prototype.parse = function (fileString) {
             if (last_command == '0') {
                 strs += '<div class="chat-notice"><span>' + command + '</span> </div>';
             } else if (last_command == '1') {
-                strs += '<div class="chat-sender"><div><img src="小马.jpg"></div><div>笨笨</div><div><div class="chat-left_triangle"></div><span>' + command + '</span></div></div>';
+                strs += '<div class="chat-sender"><div><img src="笨笨.jpg"></div><div>笨笨</div><div><div class="chat-left_triangle"></div><span>' + command + '</span></div></div>';
             } else if (last_command == '2') {
                 strs += '<div class="chat-receiver"><div><img src="维宝.jpg"></div><div>维宝</div><div><div class="chat-right_triangle"></div><span>' + command + '</span></div></div>';
             }
