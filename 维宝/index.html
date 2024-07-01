@@ -5,17 +5,41 @@
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
   <link rel="stylesheet" href="chatbox.css">
   <title>维宝日志</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    html,body{
+      width: 100%;
+      height: 100%;
+    }
+    #head{
+      height: 100px;
+      width: 100%;
+      position: fixed;
+      top: 0;
+    }
+    #content{
+      width: 100%;
+      display: inline-block;
+      padding-top: 100px;
+    }
+  </style>
 </head>
 
 <script src="https://cdn.bootcss.com/jquery/3.5.0/jquery.js"></script>
 
 <body>
-  <p>与维宝相识的日子：<font color=red>2024年2月23日11时49分</font>
-  </p>
-  <p>第一次见面的日子：<font color=red>2024年5月2日17时20分</font>
-  </p>
-  <p id="date1"></p>
-  <p id="date2"></p>
+    <div id="head">
+      <p>与维宝相识的日子：<font color=red>2024年2月23日11时49分</font></p>
+      <p>第一次见面的日子：<font color=red>2024年5月2日17时20分</font></p>
+      <p id="date1"></p>
+      <p id="date2"></p>
+      <label for="missing-date">思念日期：</label>
+      <input id="missing-date" type="date" name="start_date" min="2024-05-06" max="2100-01-01" onchange="myFunction()" /><button>&lt;</button><button>&gt;</button>
+    </div>
+    <div id="content"> </div>
   <script>
     setInterval(function () {
       var curDate = new Date();// 获取当前日期
@@ -40,14 +64,11 @@
   </script>
 
   <script src="readTxt.js"></script>
-  <label for="missing-date">思念日期：</label>
-  <input id="missing-date" type="date" name="start_date" min="2024-05-06" max="2100-01-01" onchange="myFunction()" />
-  <div id="content"> </div>
   <script>
     function updateNowDate() {
       var today = new Date();
       var year = today.getFullYear();
-      var month = today.getMonth() + 1; 
+      var month = today.getMonth() + 1;
       var day = today.getDate();
 
       var formattedDate = year + "-" + (month < 10 ? "0" + month : month) + "-" + (day < 10 ? "0" + day : day);
@@ -63,8 +84,8 @@
           document.getElementById("content").innerHTML = '';
         }
       }
-      request.open('GET', fileName, true); 
-      request.send(); 
+      request.open('GET', fileName, true);
+      request.send();
     }
 
     function onReadTxtFile(fileString, fileName) {
@@ -81,6 +102,43 @@
     }
     updateNowDate();
     myFunction();
+
+    var btn = document.getElementsByTagName('button');
+    btn[0].onclick = function () {
+      var x = document.getElementById("missing-date");
+
+      var dateTime = new Date(x.value);
+      var ms = dateTime.setDate(dateTime.getDate() - 1);
+      var newTime = new Date(ms);
+
+      var year = newTime.getFullYear();
+      var month = newTime.getMonth() + 1;
+      var day = newTime.getDate();
+
+      var date_str = year + "-" + (month < 10 ? "0" + month : month) + "-" + (day < 10 ? "0" + day : day);
+      console.log(date_str);
+      x.value = date_str;
+
+      readTxtFile(date_str.replace(/-/g, "") + '.txt');
+    }
+
+    btn[1].onclick = function () {
+      var x = document.getElementById("missing-date");
+
+      var dateTime = new Date(x.value);
+      var ms = dateTime.setDate(dateTime.getDate() + 1);
+      var newTime = new Date(ms);
+
+      var year = newTime.getFullYear();
+      var month = newTime.getMonth() + 1;
+      var day = newTime.getDate();
+
+      var date_str = year + "-" + (month < 10 ? "0" + month : month) + "-" + (day < 10 ? "0" + day : day);
+      console.log(date_str);
+      x.value = date_str;
+
+      readTxtFile(date_str.replace(/-/g, "") + '.txt');
+    }
   </script>
 </body>
 
